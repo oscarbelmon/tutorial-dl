@@ -2,6 +2,8 @@
 
 ## Instalación
 
+### Con Anaconda
+
 1. Instalar Anaconda:
    
     https://www.anaconda.com/
@@ -9,6 +11,11 @@
 2. Importar el entorno (archivo ```envoronment.yml```)
         
         conda env create -f envoronment.yml
+
+### Sin Anaconda
+
+- [Instrucciones de instalación](https://www.tensorflow.org/install/pip?hl=es_419)
+- [Instrucciones para usar la GPU](https://www.tensorflow.org/install/gpu?hl=es_419)
 
 ## Red totalmente conectada
 
