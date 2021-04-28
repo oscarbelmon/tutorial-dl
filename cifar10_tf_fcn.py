@@ -60,7 +60,7 @@ model.summary()
 plot_model(model, to_file=os.path.join('images', 'cifar10_tf_fcn.png'), show_shapes=True)
 
 # Optimizer (https://keras.io/api/optimizers/)
-optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
+optimizer = keras.optimizers.SGD(learning_rate=learning_rate)
 
 # Loss (https://keras.io/api/losses/)
 loss = keras.losses.CategoricalCrossentropy()

@@ -40,6 +40,8 @@ Para mejorar el resultado se pueden modificar los siguientes parámetros:
 
 - Número de capas
 - Número de unidades en cada capa
+- Optimizador: [opciones](https://keras.io/api/optimizers/)
+- Función de coste: [opciones](https://keras.io/api/losses/)
 - `learning_rate`: [explicación](https://towardsdatascience.com/understanding-learning-rates-and-how-it-improves-performance-in-deep-learning-d0d4059c1c10)
 - `n_epochs`: [explicación](https://towardsdatascience.com/epoch-vs-iterations-vs-batch-size-4dfb9c7ce9c9)
 - `batch_size`: [explicación](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/#:~:text=The%20number%20of%20epochs%20is%20traditionally%20large%2C%20often%20hundreds%20or,500%2C%201000%2C%20and%20larger.)
