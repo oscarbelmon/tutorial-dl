@@ -1,6 +1,8 @@
+import os
 import random
 import numpy as np
 import matplotlib.pyplot as plt
+from tensorflow import keras
 from tensorflow.keras.datasets import cifar10
 from tensorflow.python.keras.callbacks import TensorBoard
 from tensorflow.python.keras.layers import Flatten, Dense
@@ -38,26 +40,36 @@ y_test = np_utils.to_categorical(y_test_original, 10)
 x_train = x_train_original / 255
 x_test = x_test_original / 255
 
+# Hyperparameters
+learning_rate = 0.001
+n_epochs = 50
+batch_size = 32
+validation_split = 0.2
 activation = 'relu'
+
+# Model definition
 model = Sequential()
 model.add(Flatten(input_shape=(32, 32, 3), name="input_layer"))
-model.add(Dense(1024, activation=activation, name="hidden_layer_1"))
-model.add(Dense(512, activation=activation, name="hidden_layer_2"))
-model.add(Dense(256, activation=activation, name="hidden_layer_3"))
-model.add(Dense(10, activation='softmax', name="output_layer"))
+model.add(Dense(units=1024, activation=activation, name="hidden_layer_1"))
+model.add(Dense(units=512, activation=activation, name="hidden_layer_2"))
+model.add(Dense(units=256, activation=activation, name="hidden_layer_3"))
+model.add(Dense(units=10, activation='softmax', name="output_layer"))
+
+# Model summary and graph
 model.summary()
+plot_model(model, to_file=os.path.join('images', 'cifar10_tf_fcn.png'), show_shapes=True)
 
-plot_model(model, to_file='cifar10_fcn.png', show_shapes=True)
+# Optimizer (https://keras.io/api/optimizers/)
+optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
 
-# model.compile(loss='mse', optimizer='sgd', metrics=['acc'])
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc'])
+# Loss (https://keras.io/api/losses/)
+loss = keras.losses.CategoricalCrossentropy()
+
+# Compile the model before training
+model.compile(loss=loss, optimizer=optimizer, metrics=['acc'])
 
 # uncomment to use Tensorboard
 # tensorboard_callback = TensorBoard(log_dir='.', histogram_freq=1)
-
-n_epochs = 100
-batch_size = 32
-validation_split = 0.2
 
 history = model.fit(x=x_train, y=y_train, batch_size=batch_size, epochs=n_epochs, verbose=1,
                     validation_split=validation_split,
