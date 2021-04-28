@@ -47,3 +47,8 @@ Para mejorar el resultado se pueden modificar los siguientes parámetros:
 - `batch_size`: [explicación](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/#:~:text=The%20number%20of%20epochs%20is%20traditionally%20large%2C%20often%20hundreds%20or,500%2C%201000%2C%20and%20larger.)
 - `validation_split`: [explicación](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 - `activation`: [opciones](https://keras.io/api/layers/activations/)
+
+
+### Resultados
+
+Podemos ir añadiendo los resultados con distintas configuraciones en el hilo de [discussions](https://github.com/esansano/tutorial-dl/discussions)
