@@ -42,14 +42,14 @@ print(unique, counts)
 
 # Hyperparameters
 learning_rate = 0.001
-n_epochs = 1000
+n_epochs = 500
 batch_size = 64
 validation_split = 0.1
 activation = 'relu'
 dropout = 0.5
 
 # use data augmentation?
-data_augmentation = True
+data_augmentation = False
 
 # split training into training and validation
 x_tr_orig, x_vl_orig, y_tr_orig, y_vl_orig = train_test_split(x_tr_orig, y_tr_orig, test_size=validation_split)
