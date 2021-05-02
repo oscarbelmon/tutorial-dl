@@ -25,21 +25,21 @@ En este ejemplo utilizaremos el dataset ```CIFAR10``` para entrenar un clasifica
 
 - Ejemplo del tipo de imágenes del dataset:
 
-![Ejemplo CIFAR10](images/ejemplo_cifar10.png)
+![Ejemplo CIFAR10](images/cifar10_tf_fcn_train.png)
 
 Ejecuta el script ```cifar10_tf_fcn.py``` para entrenar el modelo
 
-Este es un ejemplo de entrenamiento, en el que se ve que hay sobreentrenamiento (overfitting) a partir de la `epoch` 8~10 aproximadamente:
+Este es un ejemplo de entrenamiento, en el que se ve que hay sobreentrenamiento (overfitting) a partir de la `epoch` 80 aproximadamente:
 
-![Ejemplo CIFAR10](images/history_train_cifar10.png)
+![Ejemplo CIFAR10](images/cifar10_tf_fcn_history.png)
 
 Y esta imagen muestra un ejemplo visual de los resultados con el modelo anterior:
 
-![Ejemplo CIFAR10](images/resultado_train_cifar10.png)
+![Ejemplo CIFAR10](images/cifar10_tf_fcn_test.png)
 
 En este caso, la precisión (accuracy) del modelo es:
 
-      test accuracy: 0.4546
+      test accuracy: 0.5267
 
 ### Ajuste de hiperparámetros
 
@@ -59,3 +59,47 @@ Para mejorar el resultado se pueden modificar los siguientes parámetros:
 ### Resultados
 
 Podemos ir añadiendo los resultados con distintas configuraciones en el hilo de [discussions](https://github.com/esansano/tutorial-dl/discussions)
+
+## Red convolucional
+
+Ejecuta el script ```cifar10_tf_cnn.py``` para entrenar el modelo
+
+### Resultados sin *Data Augmentation* (`data_augmentation = False`)
+
+Este es un ejemplo de entrenamiento, en el que se ve que hay sobreentrenamiento (overfitting) a partir de la `epoch` 15~20 aproximadamente:
+
+![Ejemplo CIFAR10](images/cifar10_tf_cnn_history_daf.png)
+
+
+En este caso, la precisión (accuracy) del modelo es:
+
+      test accuracy: 0.7184
+
+### Resultados con *Data Augmentation* (`data_augmentation = True`)
+
+Este es un ejemplo de entrenamiento en el que no hay *overfitting*:
+
+![Ejemplo CIFAR10](images/cifar10_tf_cnn_history_dat.png)
+
+
+En este caso, la precisión (accuracy) del modelo es:
+
+      test accuracy: 0.7931
+
+### Ajuste de hiperparámetros
+
+Para mejorar el resultado se pueden modificar los siguientes parámetros:
+
+- Activar/Desactivar `data_augmentation` y los parámetros que modifican las imágenes de entrenamiento
+- Número de capas
+- Número de unidades en cada capa
+- Parámetros de las capas convolucionales (`kernel_size`, `strides`, `filters`): [explicación](https://towardsdatascience.com/simple-introduction-to-convolutional-neural-networks-cdf8d3077bac)
+- Capas `BatchNormalization`: [explicación](https://machinelearningmastery.com/batch-normalization-for-training-of-deep-neural-networks/)
+- Dropout: [explicación](https://towardsdatascience.com/an-intuitive-explanation-to-dropout-749c7fb5395c)
+- Optimizador: [opciones](https://keras.io/api/optimizers/)
+- Función de coste: [opciones](https://keras.io/api/losses/)
+- `learning_rate`: [explicación](https://towardsdatascience.com/understanding-learning-rates-and-how-it-improves-performance-in-deep-learning-d0d4059c1c10)
+- `n_epochs`: [explicación](https://towardsdatascience.com/epoch-vs-iterations-vs-batch-size-4dfb9c7ce9c9)
+- `batch_size`: [explicación](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/#:~:text=The%20number%20of%20epochs%20is%20traditionally%20large%2C%20often%20hundreds%20or,500%2C%201000%2C%20and%20larger.)
+- `validation_split`: [explicación](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
+- `activation`: [opciones](https://keras.io/api/layers/activations/)
