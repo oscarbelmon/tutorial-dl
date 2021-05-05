@@ -13,7 +13,7 @@ from tensorflow.python.keras.utils import np_utils
 from tensorflow.python.keras.utils.vis_utils import plot_model
 
 
-save_plots = True
+save_plots = False
 
 (x_tr_orig, y_tr_orig), (x_ts_orig, y_ts_orig) = cifar10.load_data()
 
@@ -52,7 +52,13 @@ dropout = 0.5
 data_augmentation = False
 
 # split training into training and validation
-x_tr_orig, x_vl_orig, y_tr_orig, y_vl_orig = train_test_split(x_tr_orig, y_tr_orig, test_size=validation_split)
+x_tr_orig, x_vl_orig, y_tr_orig, y_vl_orig = train_test_split(x_tr_orig, y_tr_orig, test_size=validation_split,
+                                                              shuffle=True, stratify=y_tr_orig)
+# Check if training and validation sets are balanced
+unique, counts = np.unique(y_tr_orig, return_counts=True)
+print(unique, counts)
+unique, counts = np.unique(y_vl_orig, return_counts=True)
+print(unique, counts)
 
 # labels to categorical (one-hot encoding)
 y_train = np_utils.to_categorical(y_tr_orig, 10)
