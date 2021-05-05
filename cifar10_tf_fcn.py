@@ -10,6 +10,9 @@ from tensorflow.python.keras.models import Sequential
 from tensorflow.python.keras.utils import np_utils
 from tensorflow.python.keras.utils.vis_utils import plot_model
 
+
+save_plots = True
+
 (x_train_original, y_train_original), (x_test_original, y_test_original) = cifar10.load_data()
 
 # Data set labels
@@ -26,7 +29,10 @@ for i in range(3):
         ax[i, j].set_title(f'{labels[y_true_label]}')
 
 plt.tight_layout()
-plt.show()
+if save_plots:
+    plt.savefig(os.path.join('images', 'cifar10_tf_fcn_train.png'))
+else:
+    plt.show()
 
 # Check if dataset is balanced
 unique, counts = np.unique(y_train_original, return_counts=True)
@@ -36,13 +42,13 @@ print(unique, counts)
 y_train = np_utils.to_categorical(y_train_original, 10)
 y_test = np_utils.to_categorical(y_test_original, 10)
 
-# values in the interval 0 - 1
+# scale values in the interval 0 - 1
 x_train = x_train_original / 255
 x_test = x_test_original / 255
 
 # Hyperparameters
 learning_rate = 0.001
-n_epochs = 50
+n_epochs = 100
 batch_size = 32
 validation_split = 0.2
 activation = 'relu'
@@ -79,7 +85,7 @@ history = model.fit(x=x_train, y=y_train, batch_size=batch_size, epochs=n_epochs
                     )
 
 # Plot training
-fig, ax = plt.subplots(1, 2, figsize=(10, 5), dpi=100)
+_, ax = plt.subplots(1, 2, figsize=(10, 5), dpi=100)
 ax[0].plot(history.history['acc'], 'r')
 ax[0].plot(history.history['val_acc'], 'g')
 ax[0].set_xlabel("Num of Epochs")
@@ -95,7 +101,10 @@ ax[1].set_title("Training Loss vs Validation Loss")
 ax[1].legend(['train', 'validation'])
 
 plt.tight_layout()
-plt.show()
+if save_plots:
+    plt.savefig(os.path.join('images', 'cifar10_tf_fcn_history.png'))
+else:
+    plt.show()
 
 # Final test accuracy
 evaluation = model.evaluate(x=x_test, y=y_test, batch_size=batch_size, verbose=1)
@@ -104,18 +113,18 @@ print(f'test accuracy: {evaluation[1]:.4f}')
 # Plot 9 random predictions
 idxs = random.sample(range(x_test.shape[0]), 9)
 y_hat = model.predict(x_test[idxs])
-fig, ax = plt.subplots(3, 3, figsize=(10, 10), dpi=100)
+_, ax = plt.subplots(3, 3, figsize=(10, 10), dpi=100)
 for i in range(3):
     for j in range(3):
         index = idxs[j + i * 3]
-        ax[i, j].imshow(x_test[index])
+        ax[i, j].imshow(x_test_original[index])
         y_pred_label = np.argmax(y_hat[j + i * 3])
         y_true_label = np.argmax(y_test[index])
 
         ax[i, j].set_title(f'True: {labels[y_true_label]}, predicted: {labels[y_pred_label]}')
 
 plt.tight_layout()
-plt.show()
-
-
-
+if save_plots:
+    plt.savefig(os.path.join('images', 'cifar10_tf_fcn_test.png'))
+else:
+    plt.show()
