@@ -42,7 +42,7 @@ print(unique, counts)
 
 # Hyperparameters
 learning_rate = 0.001
-n_epochs = 500
+n_epochs = 50
 batch_size = 64
 validation_split = 0.1
 activation = 'relu'

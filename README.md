@@ -103,3 +103,56 @@ Para mejorar el resultado se pueden modificar los siguientes parámetros:
 - `batch_size`: [explicación](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/#:~:text=The%20number%20of%20epochs%20is%20traditionally%20large%2C%20often%20hundreds%20or,500%2C%201000%2C%20and%20larger.)
 - `validation_split`: [explicación](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 - `activation`: [opciones](https://keras.io/api/layers/activations/)
+
+## Autoencoders
+
+### Ejemplo 1: Detección de fraude
+
+Ejecuta el script ```fraud_detection_tf_ae.py``` para entrenar el modelo
+
+#### Aprendizaje no supervisado
+
+Se entrena el modelo únicamente con los ejemplos de transacciones normales
+
+![Ejemplo detección fraude](images/fraud_detection_tf_ae_history.png)
+
+
+Una vez entrenado, utilizamos el conjunto de validación para buscar un umbral sobre el error de reconstrucción que nos permita separar las transacciones fraudulentas de las normales.
+
+![Histograma detección fraude](images/fraud_detection_tf_ae_histogram.png)
+
+Zoom:
+
+![Histograma detección fraude](images/fraud_detection_tf_ae_histogram_zoom.png)
+
+Se ve claramente que tenemos dos distribuciones distintas, aunque se solapan en algún intervalo.
+
+Representamos algunas métricas (precision, recall y f1):
+
+![precision-recall-f1 detección fraude](images/fraud_detection_tf_ae_prec_rec.png)
+
+![precision-recall](images/precision_recall.jpg)
+
+Como ejemplo, si elegimos un umbral para el error de reconstrucción de 5, obtendríamos esta separación de las clases:
+
+![precision-recall](images/fraud_detection_tf_ae_threshold.png)
+
+y esta matriz de confución:
+
+![precision-recall](images/fraud_detection_tf_ae_conf_matrix.png)
+
+### Ejemplo 2: Mejora de la resolución de imágenes
+
+En este ejemplo utilizamos las imágenes en baja resolución como entrada al `autoencoder` y las imágenes con alta resolución como salida.
+
+Este es un ejemplo del tipo de imágenes utilizadas. A la izquierda la entrada y a la derecha la salida.
+
+![Image enhance train set](images/img_enhance_tf_ae_train.png)
+
+Entrenamos hasta que el coste en el conjunto de validación deja de bajar:
+
+![Image enhance train history](images/img_enhance_tf_ae_history.png)
+
+Este es el resultado evaluando en el conjunto de test:
+
+![Image enhance test set evaluation](images/img_enhance_tf_ae_test.png)
