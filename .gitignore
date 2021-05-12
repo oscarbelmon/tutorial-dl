@@ -148,3 +148,4 @@ fabric.properties
 
 # Que no guarde las imágenes que genera el código
 /images
+/fraud_detection.h5
