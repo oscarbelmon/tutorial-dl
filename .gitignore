@@ -149,3 +149,9 @@ fabric.properties
 # Que no guarde las imágenes que genera el código
 /images
 /fraud_detection.h5
+
+
+# Otras cosas que no hace falta guardar
+bin/
+lib64
+
