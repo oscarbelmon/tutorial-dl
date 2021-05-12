@@ -14,7 +14,7 @@ from tensorflow.python.keras.models import Sequential, load_model
 from tensorflow.python.keras.utils.vis_utils import plot_model
 
 save_plots = False
-train_model = False
+train_model = True
 
 # download dataset from https://www.kaggle.com/mlg-ulb/creditcardfraud/data
 df = pd.read_csv(os.path.join('data', 'fraud', 'creditcard.csv'))
