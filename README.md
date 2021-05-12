@@ -140,3 +140,19 @@ Como ejemplo, si elegimos un umbral para el error de reconstrucción de 5, obten
 y esta matriz de confución:
 
 ![precision-recall](images/fraud_detection_tf_ae_conf_matrix.png)
+
+### Ejemplo 2: Mejora de la resolución de imágenes
+
+En este ejemplo utilizamos las imágenes en baja resolución como entrada al `autoencoder` y las imágenes con alta resolución como salida.
+
+Este es un ejemplo del tipo de imágenes utilizadas. A la izquierda la entrada y a la derecha la salida.
+
+![Image enhance train set](images/img_enhance_tf_ae_train.png)
+
+Entrenamos hasta que el coste en el conjunto de validación deja de bajar:
+
+![Image enhance train history](images/img_enhance_tf_ae_history.png)
+
+Este es el resultado evaluando en el conjunto de test:
+
+![Image enhance test set evaluation](images/img_enhance_tf_ae_test.png)
