@@ -156,3 +156,52 @@ Entrenamos hasta que el coste en el conjunto de validación deja de bajar:
 Este es el resultado evaluando en el conjunto de test:
 
 ![Image enhance test set evaluation](images/img_enhance_tf_ae_test.png)
+
+## NLP (Natural Language Processing)
+
+### Word embedding
+
+[Skip-gram embedding](https://gruizdevilla.medium.com/introducci%C3%B3n-a-word2vec-skip-gram-model-4800f72c871f)
+
+![word embedding process](images/word_embedding_skip_gram.png)
+
+![word embedding vectors](images/word_embedding_vectors.png)
+
+
+- [king] - [man] + [woman] -> [queen]
+- [paris] - [france] + [italy] -> [rome]
+
+
+### Transformer
+
+#### Attention
+
+[Attention mechanism](https://medium.com/analytics-vidhya/https-medium-com-understanding-attention-mechanism-natural-language-processing-9744ab6aed6a)
+
+![Mecanismo de atención](images/attention_mechanism.png)
+
+#### Transformer completo
+
+[Transformer](http://jalammar.github.io/illustrated-transformer/)
+
+![Transformer original](images/complete_transformer.png)
+
+
+### Ejemplos
+
+#### Ejemplo 1
+
+Análisis de sentimiento. El conjunto de entrenamiento está compuesto por críticas de cine etiquetadas como positivas o negativas.
+
+El modelo está compuesto por una capa de *embedding*, dos capas convolucionales de 1 sola dimensión, y un clasificador totalmente conectado.
+
+
+script: `nlp_text_class_tf.py`
+
+#### Ejemplo 2
+
+Este ejemplo es igual que el anterior, pero sustituyendo las dos capas convolucionales por una versión reducida de *transformer*
+
+script: `nlp_text_class_transformer_tf.py`
+
+En ambos casos, el resultado en el conjunto de test está alrededor de 0.96 (accuracy)
