@@ -200,7 +200,7 @@ script: `nlp_text_class_tf.py`
 
 #### Ejemplo 2
 
-Este ejemplo es igual que el anterior, pero sustituyendo las dos capas convolucionales por una versión reducida de *transformer*
+Este ejemplo es igual que el anterior, pero sustituyendo las dos capas convolucionales por una versión reducida de *transformer* que solo incluye la parte del *encoder*
 
 script: `nlp_text_class_transformer_tf.py`
 
