@@ -20,7 +20,7 @@ raw_train_ds = text_dataset_from_directory(os.path.join(data_path, 'train'), bat
                                            validation_split=0.2, subset='training', seed=42)
 raw_val_ds = text_dataset_from_directory(os.path.join(data_path, 'train'), batch_size=batch_size,
                                          validation_split=0.2, subset='validation', seed=42)
-raw_test_ds = text_dataset_from_directory(os.path.join(data_path, 'train'), batch_size=batch_size)
+raw_test_ds = text_dataset_from_directory(os.path.join(data_path, 'test'), batch_size=batch_size)
 
 print(f'Number of batches in raw_train_ds: {cardinality(raw_train_ds)}')
 print(f'Number of batches in raw_val_ds: {cardinality(raw_val_ds)}')
@@ -109,4 +109,4 @@ model.fit(train_ds, validation_data=val_ds, epochs=epochs)
 print('Test accuracy')
 model.evaluate(test_ds)
 
-# 782/782 [==============================] - 9s 11ms/step - loss: 0.1103 - accuracy: 0.9656
+# 782/782 [==============================] - 9s 11ms/step - loss: 0.5484 - accuracy: 0.8363

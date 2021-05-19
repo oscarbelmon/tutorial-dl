@@ -22,7 +22,7 @@ raw_train_ds = text_dataset_from_directory(os.path.join(data_path, 'train'), bat
                                            validation_split=0.2, subset='training', seed=42)
 raw_val_ds = text_dataset_from_directory(os.path.join(data_path, 'train'), batch_size=batch_size,
                                          validation_split=0.2, subset='validation', seed=42)
-raw_test_ds = text_dataset_from_directory(os.path.join(data_path, 'train'), batch_size=batch_size)
+raw_test_ds = text_dataset_from_directory(os.path.join(data_path, 'test'), batch_size=batch_size)
 
 print(f'Number of batches in raw_train_ds: {cardinality(raw_train_ds)}')
 print(f'Number of batches in raw_val_ds: {cardinality(raw_val_ds)}')
@@ -49,9 +49,7 @@ vocabulary_size = 20000
 embedding_dim = 32
 sequence_length = 200
 dropout = 0.5
-n_filters = 128
-kernel_size = 7
-epochs = 5
+epochs = 2
 learning_rate = 0.001
 transformer_attn_heads = 2
 transformer_ffl_size = 32
@@ -134,4 +132,4 @@ model.fit(train_ds, validation_data=val_ds, epochs=epochs)
 print('Test accuracy')
 model.evaluate(test_ds)
 
-# 782/782 [==============================] - 12s 15ms/step - loss: 0.1284 - accuracy: 0.9640
+# 782/782 [==============================] - 6s 8ms/step - loss: 0.3781 - accuracy: 0.8416

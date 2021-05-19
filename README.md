@@ -204,4 +204,4 @@ Este ejemplo es igual que el anterior, pero sustituyendo las dos capas convoluci
 
 script: `nlp_text_class_transformer_tf.py`
 
-En ambos casos, el resultado en el conjunto de test está alrededor de 0.96 (accuracy)
+En ambos casos, el resultado en el conjunto de test está alrededor de 0.84 (accuracy)
