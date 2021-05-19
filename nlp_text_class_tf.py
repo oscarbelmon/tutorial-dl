@@ -34,8 +34,8 @@ for text_batch, label_batch in raw_train_ds.take(1):
 
 
 # Esta función se encargará de limpiar los datos (quitar las etiquetas '<br />' y los escapes
-# antes de los signos de puntuación) y pasar toso el texto a minúsculas.
-def custom_standardization(input_data):
+# antes de los signos de puntuación) y pasar el texto a minúsculas.
+def clean_input(input_data):
     result = tf.strings.lower(input_data)
     result = tf.strings.regex_replace(result, '<br />', ' ')
     result = tf.strings.regex_replace(result, f'[{re.escape(string.punctuation)}]', '')
@@ -49,12 +49,12 @@ sequence_length = 200
 dropout = 0.5
 n_filters = 128
 kernel_size = 7
-epochs = 5
+epochs = 4
 learning_rate = 0.001
 
-# Esta capa convierte una frase en un vector de enteros. Cada número representa el índice de la palabra
+# Esto convierte una frase en un vector de enteros. Cada número representa el índice de la palabra
 # en el vocabulario
-vectorize_layer = TextVectorization(standardize=custom_standardization, max_tokens=vocabulary_size, output_mode='int',
+vectorize_layer = TextVectorization(standardize=clean_input, max_tokens=vocabulary_size, output_mode='int',
                                     output_sequence_length=sequence_length)
 
 # text_ds es un data set que contiene solamente texto, no las etiquetas. Lo utilizamos
@@ -109,4 +109,4 @@ model.fit(train_ds, validation_data=val_ds, epochs=epochs)
 print('Test accuracy')
 model.evaluate(test_ds)
 
-# 782/782 [==============================] - 9s 11ms/step - loss: 0.5484 - accuracy: 0.8363
+# 782/782 [==============================] - 9s 11ms/step - loss: 0.4772 - accuracy: 0.8340

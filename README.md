@@ -176,7 +176,9 @@ Este es el resultado evaluando en el conjunto de test:
 
 #### Attention
 
-[Attention mechanism](https://medium.com/analytics-vidhya/https-medium-com-understanding-attention-mechanism-natural-language-processing-9744ab6aed6a)
+[Attention mechanism (1)](https://medium.com/analytics-vidhya/https-medium-com-understanding-attention-mechanism-natural-language-processing-9744ab6aed6a)
+
+[Attention mechanism (2)](https://towardsdatascience.com/transformers-explained-visually-part-3-multi-head-attention-deep-dive-1c1ff1024853)
 
 ![Mecanismo de atención](images/attention_mechanism.png)
 
@@ -197,6 +199,8 @@ El modelo está compuesto por una capa de *embedding*, dos capas convolucionales
 
 
 script: `nlp_text_class_tf.py`
+
+[Pooling Layers](https://www.machinecurve.com/index.php/2020/01/30/what-are-max-pooling-average-pooling-global-max-pooling-and-global-average-pooling/)
 
 #### Ejemplo 2
 
