@@ -263,6 +263,16 @@ El resultado en el conjunto de test es parecido a los ejemplos anteriores, pero 
 [Anomaly detection in wearable health data](https://towardsdatascience.com/does-machine-learning-know-when-im-scared-anomaly-detection-in-wearable-health-data-72f537dd4370)
 
 
+## Deep Learning MAL
+
+[Job applications](https://web.br.de/interaktiv/ki-bewerbung/en/)
+
+[Tesla confunde Burger King con señal de stop](https://www.youtube.com/watch?v=jheBCOpE9ws)
+
+[Tesla confunde stop an anuncio](https://youtu.be/-OdOmU58zOw?t=143)
+
+
 ## Recursos
 
 [Curso gratuito](https://d2l.ai/index.html)
+
