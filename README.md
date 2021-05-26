@@ -212,6 +212,8 @@ En ambos casos, el resultado en el conjunto de test está alrededor de 0.84 (acc
 
 ## Recurrent Neural Networks
 
+[RNN - LSTM](https://medium.com/@humble_bee/rnn-recurrent-neural-networks-lstm-842ba7205bbf)
+
 [Vanilla RNN](https://datascience-enthusiast.com/DL/Building_a_Recurrent_Neural_Network-Step_by_Step_v1.html)
 
 [LSTM](https://adventuresinmachinelearning.com/keras-lstm-tutorial/)
