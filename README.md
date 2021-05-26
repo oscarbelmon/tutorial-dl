@@ -209,3 +209,58 @@ Este ejemplo es igual que el anterior, pero sustituyendo las dos capas convoluci
 script: `nlp_text_class_transformer_tf.py`
 
 En ambos casos, el resultado en el conjunto de test está alrededor de 0.84 (accuracy)
+
+## Recurrent Neural Networks
+
+[Vanilla RNN](https://datascience-enthusiast.com/DL/Building_a_Recurrent_Neural_Network-Step_by_Step_v1.html)
+
+[LSTM](https://adventuresinmachinelearning.com/keras-lstm-tutorial/)
+
+[Tutorial RNN](https://www.cs.toronto.edu/~tingwuwang/rnn_tutorial.pdf)
+
+#### Ejemplo 1
+
+Este ejemplo es igual que los dos anteriores, pero sustituyendo las capas convolucionales/transformer por una capa de celdas LSTM.
+
+script: `nlp_text_class_lstm_tf.py`
+
+El resultado en el conjunto de test es parecido a los ejemplos anteriores, pero el entrenamiento es más lento.
+
+
+## Casos de uso, arquitecturas y ejemplos
+
+### Computer vision
+
+[Arquitecturas para *computer vision*](https://www.analyticsvidhya.com/blog/2017/08/10-advanced-deep-learning-architectures-data-scientists/)
+
+
+[Applications of GANs](https://machinelearningmastery.com/impressive-applications-of-generative-adversarial-networks/)
+
+[GAN example with Keras](https://keras.io/examples/generative/dcgan_overriding_train_step/)
+
+### Speech recognition
+
+[Speech recognition](https://towardsdatascience.com/audio-deep-learning-made-simple-automatic-speech-recognition-asr-how-it-works-716cfce4c706)
+
+### Natural Language Processing
+
+[Applications of deep learning in NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a)
+
+### Recommendation engines
+
+[Deep learning-based recommender systems (1)](https://medium.com/sciforce/deep-learning-based-recommender-systems-b61a5ddd5456)
+
+
+[Deep learning-based recommender systems (2)](https://towardsdatascience.com/deep-learning-based-recommender-systems-3d120201db7e)
+
+
+### Health
+
+[3D Image Classification from CT Scans (pneumonia prediction)](https://keras.io/examples/vision/3D_image_classification/)
+
+[Anomaly detection in wearable health data](https://towardsdatascience.com/does-machine-learning-know-when-im-scared-anomaly-detection-in-wearable-health-data-72f537dd4370)
+
+
+## Recursos
+
+[Curso gratuito](https://d2l.ai/index.html)
